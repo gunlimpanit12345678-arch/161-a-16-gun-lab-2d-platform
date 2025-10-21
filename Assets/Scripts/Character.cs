@@ -27,6 +27,7 @@ public class Charator : MonoBehaviour
     {
         Health -= damage;
         Debug.Log($"{this.name} took damage {damage}. Current Health {Health}");
+        IsDead();
     }
 
     public bool IsDead()
