@@ -16,7 +16,7 @@ public class Player : Charater , Ishootable
     }
     private void FixedUpdate()
     {
-        WaitTime = Time.fixedDeltaTime;
+        WaitTime += Time.fixedDeltaTime;
     }
     private void Update()
     {
@@ -25,7 +25,7 @@ public class Player : Charater , Ishootable
 
     public void Shoot() 
     {
-     if (Input.GetButtonDown("Fire1")&& WaitTime>= ReloadTime)
+     if (Input.GetButtonDown("Fire1") && WaitTime>= ReloadTime)
         { var bullet = Instantiate(Bullet,Shootpoint.position,Quaternion.identity);
             Banana banana = bullet.GetComponent<Banana>();
             if (banana != null)
