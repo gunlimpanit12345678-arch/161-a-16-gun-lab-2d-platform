@@ -1,16 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class  Enermie : Charater
+public class Banana : MonoBehaviour
 {
-  
-    public abstract void Behavior();
-    public int DamageHit {  get; protected set; }
-
-    
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
