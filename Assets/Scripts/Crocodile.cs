@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crocodile : Enermie
+public class Crocodile : Enermie, Ishootable
 {
     [SerializeField] private float atkRange;
     public Player player;
 
+    [field: SerializeField] public GameObject Bullet { get; set; }
+    [field: SerializeField] public Transform Shootpoint { get; set; }
+     public float ReloadTime { get; set; }
+     public float WaitTime { get; set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +20,9 @@ public class Crocodile : Enermie
 
         atkRange = 6.0f;
         player= GameObject.FindFirstObjectByType<Player>();
+
+        WaitTime = 0.0f;
+        ReloadTime = 5.0f;
     }
     public override void Behavior()
     {
@@ -28,7 +35,17 @@ public class Crocodile : Enermie
     }
     public void Shoot()
     {
-        Debug.Log($"{this.name} shoots rock to the {player.name}!");
+        if (Bullet != null)
+        {
+            if (WaitTime >= ReloadTime)
+            {
+                anim.SetTrigger("Shoot");
+                var bullet = Instantiate(Bullet, Shootpoint.position, Quaternion.identity);
+                Rock rock = bullet.GetComponent<Rock>();
+                rock.InitWeapon(30, this);
+                WaitTime = 0.0f;
+            }
+        }
     }
 
     private void FixedUpdate()

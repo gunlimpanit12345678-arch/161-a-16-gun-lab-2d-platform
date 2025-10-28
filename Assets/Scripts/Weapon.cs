@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
+using UnityEngine.TextCore.Text;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public abstract class Weapon : MonoBehaviour
         Charater character = other.GetComponent<Charater>();
         if (character != null)
         {
-            OnHitWith(character);
+            OnHitWith(other.GetComponent<Charater>());
             Destroy(this.gameObject, 5f);
         }
     }

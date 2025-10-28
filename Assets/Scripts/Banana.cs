@@ -1,16 +1,33 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-public class Banana : MonoBehaviour
+public class Banana : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float speed;
+    public override void Move()
+    {
+        float newX = transform.position.x + speed * Time.fixedDeltaTime;
+        float newY = transform.position.y;
+        Vector2 newPosition = new Vector2(newX, newY);
+        transform.position = newPosition;
+    }
+    public override void OnHitWith(Charater charater)
+    {
+        if (charater is Player)
+            charater.TakeDamage(this.damage);
+    }
     void Start()
     {
         
+        speed = 4.0f * GetShootDirection();
+        damage = 30;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
-    }
+        Move();
+
+    } 
 }
+
+
+    

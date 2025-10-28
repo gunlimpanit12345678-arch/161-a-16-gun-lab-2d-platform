@@ -1303,6 +1303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cd5bf4214c3484594bb7d613201e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
+  <Shootpoint>k__BackingField: {fileID: 563955327}
+  <ReloadTime>k__BackingField: 0
+  <WaitTime>k__BackingField: 0
 --- !u!1 &700832717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkRange: 0
   player: {fileID: 0}
+  <Bullet>k__BackingField: {fileID: 115806, guid: 40466c5ac40024bbca1e4b144cdf43c2, type: 3}
+  <Shootpoint>k__BackingField: {fileID: 588051386}
 --- !u!1001 &809091249
 PrefabInstance:
   m_ObjectHideFlags: 0
