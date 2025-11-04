@@ -13,7 +13,7 @@ public class Banana : Weapon
     }
     public override void OnHitWith(Charater charater)
     {
-        if (charater is Player)
+        if (charater is Enermie)
             charater.TakeDamage(this.damage);
     }
     void Start()
